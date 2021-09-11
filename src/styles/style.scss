@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+// colors
+
+$t: #353b55;
+$b: #fff;
+$l: #f7f6f9;
+
+$gd: #2d907c;
+$gl: #e8f2f1;
+$pd: #594484;
+$pl: #e9e5f0;
+
+// text styles
+
+.t1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.t2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.t3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+// margins
+
+.m10 {
+  margin-top: 10px !important;
+}
+
+.m20 {
+  margin-top: 20px !important;
+}
+
+.m40 {
+  margin-top: 40px !important;
+}
+
+// --------------------------------- //
+
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  background-color: $b;
+  color: $t;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.converter {
+  padding: 80px 30px;
+}
+
+.header {
+  .h {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .d {
+    opacity: 0.8;
+  }
+}
+
+.input {
+  width: 100%;
+
+  .input-btn {
+    all: unset;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: $l;
+    border-radius: 5px;
+    padding: 10px;
+    width: calc(100% - 20px);
+    border: 2px solid $b;
+    transition: 0.3s ease;
+  }
+
+  .input-btn:hover,
+  .input-btn:active,
+  .input-btn:focus {
+    border: 2px solid #d3dbff;
+  }
+
+  .exchange-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .tab {
+      font-weight: bold;
+      font-size: 14px;
+      background-color: $l;
+      padding: 10px;
+      width: 40%;
+      border-radius: 5px;
+      text-align: center;
+      height: 20px;
+    }
+
+    .tab-l {
+      @extend .tab;
+      justify-self: start;
+    }
+
+    .tab-r {
+      @extend .tab;
+      justify-self: end;
+    }
+  }
+
+  .exchange-container-code {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .tab {
+      font-weight: bold;
+      font-size: 14px;
+      background-color: $l;
+      padding: 5px;
+      width: 40%;
+      border-radius: 5px;
+      text-align: center;
+      height: 20px;
+    }
+
+    .tab-l {
+      @extend .tab;
+      justify-self: start;
+      background-color: $gl;
+      color: $gd;
+    }
+
+    .tab-r {
+      @extend .tab;
+      justify-self: end;
+      background-color: $pl;
+      color: $pd;
+    }
+  }
+
+  .exchange-container-names {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .tab {
+      font-size: 12px;
+      padding: 10px;
+      width: 40%;
+      opacity: 0.3;
+      text-align: center;
+    }
+
+    .tab-l {
+      @extend .tab;
+      justify-self: start;
+    }
+
+    .tab-r {
+      @extend .tab;
+      justify-self: end;
+    }
+  }
+}

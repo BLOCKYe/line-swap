@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+.t1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.t2 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.t3 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.m10 {
+  margin-top: 10px !important;
+}
+
+.m20 {
+  margin-top: 20px !important;
+}
+
+.m40 {
+  margin-top: 40px !important;
+}
+
+html {
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  background-color: #fff;
+  color: #353b55;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.converter {
+  padding: 80px 30px;
+}
+
+.header .h {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header .d {
+  opacity: 0.8;
+}
+
+.input {
+  width: 100%;
+}
+
+.input .input-btn {
+  all: unset;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #f7f6f9;
+  border-radius: 5px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  border: 2px solid #fff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.input .input-btn:hover,
+.input .input-btn:active,
+.input .input-btn:focus {
+  border: 2px solid #d3dbff;
+}
+
+.input .exchange-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.input .exchange-container .tab, .input .exchange-container .tab-l, .input .exchange-container .tab-r {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #f7f6f9;
+  padding: 10px;
+  width: 40%;
+  border-radius: 5px;
+  text-align: center;
+  height: 20px;
+}
+
+.input .exchange-container .tab-l {
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.input .exchange-container .tab-r {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.input .exchange-container-code {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.input .exchange-container-code .tab, .input .exchange-container-code .tab-l, .input .exchange-container-code .tab-r {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #f7f6f9;
+  padding: 5px;
+  width: 40%;
+  border-radius: 5px;
+  text-align: center;
+  height: 20px;
+}
+
+.input .exchange-container-code .tab-l {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  background-color: #e8f2f1;
+  color: #2d907c;
+}
+
+.input .exchange-container-code .tab-r {
+  -ms-grid-column-align: end;
+      justify-self: end;
+  background-color: #e9e5f0;
+  color: #594484;
+}
+
+.input .exchange-container-names {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.input .exchange-container-names .tab, .input .exchange-container-names .tab-l, .input .exchange-container-names .tab-r {
+  font-size: 12px;
+  padding: 10px;
+  width: 40%;
+  opacity: 0.3;
+  text-align: center;
+}
+
+.input .exchange-container-names .tab-l {
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+.input .exchange-container-names .tab-r {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+/*# sourceMappingURL=style.css.map */
