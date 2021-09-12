@@ -2,14 +2,14 @@
 
 // colors
 
-$t: #353b55;
-$b: #fff;
-$l: #f7f6f9;
+$t: #262626;
+$b: #f3f3f3;
+$l: #fafafa;
 
-$gd: #2d907c;
-$gl: #e8f2f1;
-$pd: #594484;
-$pl: #e9e5f0;
+$gd: #fabc29;
+$gl: #f4eddf;
+$pd: #758bef;
+$pl: #e6e9f3;
 
 // text styles
 
@@ -51,20 +51,36 @@ html {
   color: $t;
   max-width: 400px;
   margin: 0 auto;
+  letter-spacing: 0.3px;
 }
 
 .converter {
   padding: 80px 30px;
 }
 
+.fixedSection {
+  position: fixed;
+  z-index: 100;
+  background-color: $b;
+  width: calc(100% - 60px);
+  top: 0;
+  left: 30px;
+  padding-bottom: 40px;
+  max-width: 400px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .header {
+  padding-top: 40px;
+
   .h {
     font-size: 30px;
     font-weight: bold;
   }
 
   .d {
-    opacity: 0.8;
+    opacity: 0.3;
   }
 }
 
@@ -86,85 +102,114 @@ html {
   .input-btn:hover,
   .input-btn:active,
   .input-btn:focus {
-    border: 2px solid #d3dbff;
+    border: 2px solid #d9cbf5;
   }
 
   .exchange-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "value-l icon value-r"
+      "from-l icon to-r"
+      "name-l icon name-r";
 
-    .tab {
-      font-weight: bold;
-      font-size: 14px;
+    .value-l {
+      grid-area: value-l;
       background-color: $l;
-      padding: 10px;
-      width: 40%;
-      border-radius: 5px;
-      text-align: center;
-      height: 20px;
-    }
-
-    .tab-l {
-      @extend .tab;
-      justify-self: start;
-    }
-
-    .tab-r {
-      @extend .tab;
-      justify-self: end;
-    }
-  }
-
-  .exchange-container-code {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    .tab {
       font-weight: bold;
-      font-size: 14px;
-      background-color: $l;
       padding: 5px;
-      width: 40%;
-      border-radius: 5px;
       text-align: center;
-      height: 20px;
+      border-radius: 5px;
+      height: 25px;
     }
 
-    .tab-l {
-      @extend .tab;
-      justify-self: start;
+    .value-r {
+      @extend.value-l;
+      grid-area: value-r;
+    }
+
+    .icon {
+      grid-area: icon;
+      text-align: end;
+      display: block;
+      text-indent: -9999px;
+      width: 18px;
+      height: 18px;
+      background: url(../exchange.svg);
+      background-size: 18px 18px;
+      justify-self: center;
+    }
+
+    .from-l {
+      @extend .value-l;
+      grid-area: from-l;
       background-color: $gl;
       color: $gd;
+      font-size: 14px;
+      width: 50%;
+      justify-self: center;
+      height: 20px;
     }
 
-    .tab-r {
-      @extend .tab;
-      justify-self: end;
+    .to-r {
+      @extend .value-l;
+      grid-area: to-r;
       background-color: $pl;
       color: $pd;
+      font-size: 14px;
+      width: 50%;
+      justify-self: center;
+      height: 20px;
     }
-  }
 
-  .exchange-container-names {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    .tab {
+    .name-l {
+      grid-area: name-l;
       font-size: 12px;
-      padding: 10px;
-      width: 40%;
-      opacity: 0.3;
+      color: $gd;
+      opacity: 1;
+      font-weight: bold;
       text-align: center;
+      margin-top: 10px;
+      height: 16px;
     }
 
-    .tab-l {
-      @extend .tab;
-      justify-self: start;
-    }
-
-    .tab-r {
-      @extend .tab;
-      justify-self: end;
+    .name-r {
+      @extend .name-l;
+      color: $pd;
+      grid-area: name-r;
     }
   }
+}
+
+.list {
+  position: absolute;
+  top: 340px;
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+.currency {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: 0.4s ease;
+
+  .code {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .name {
+    font-size: 12px;
+    opacity: 0.3;
+  }
+}
+
+.currency:hover {
+  background-color: $l;
 }

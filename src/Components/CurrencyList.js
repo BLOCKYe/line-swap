@@ -1,0 +1,17 @@
+import React from "react";
+import Currency from "./Currency";
+
+function CurrencyList(props) {
+  return (
+    <div className="list m40">
+      <div className="title">List of currencies</div>
+      <div>
+        {[...props.currency].map((e) => (
+          <Currency code={e.code} name={e.currency} key={e.code} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default CurrencyList;
