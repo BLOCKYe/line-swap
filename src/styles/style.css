@@ -90,6 +90,22 @@ html {
   border: 2px solid #d9cbf5;
 }
 
+.input .input-btn::-webkit-input-placeholder {
+  opacity: .3;
+}
+
+.input .input-btn:-ms-input-placeholder {
+  opacity: .3;
+}
+
+.input .input-btn::-ms-input-placeholder {
+  opacity: .3;
+}
+
+.input .input-btn::placeholder {
+  opacity: .3;
+}
+
 .input .exchange-container {
   display: -ms-grid;
   display: grid;
@@ -133,6 +149,7 @@ html {
   background-size: 18px 18px;
   -ms-grid-column-align: center;
       justify-self: center;
+  cursor: pointer;
 }
 
 .input .exchange-container .from-l {
@@ -201,6 +218,7 @@ html {
   cursor: pointer;
   -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
+  border-radius: 5px;
 }
 
 .currency .code {

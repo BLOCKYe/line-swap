@@ -105,6 +105,10 @@ html {
     border: 2px solid #d9cbf5;
   }
 
+  .input-btn::placeholder {
+    opacity: .3;
+  }
+
   .exchange-container {
     display: grid;
     align-items: center;
@@ -139,6 +143,7 @@ html {
       background: url(../exchange.svg);
       background-size: 18px 18px;
       justify-self: center;
+      cursor: pointer;
     }
 
     .from-l {
@@ -199,6 +204,7 @@ html {
   padding: 5px 20px;
   cursor: pointer;
   transition: 0.4s ease;
+  border-radius: 5px;
 
   .code {
     font-weight: bold;

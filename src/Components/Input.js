@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Input(props) {
-  const [input, setinput] = useState("");
   const [value, setValue] = useState("");
   const [valueAfter, setValueAfter] = useState("");
-
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-
   const [fromName, setfromName] = useState("");
   const [toName, setToName] = useState("");
 
-  const handleInput = (e) => {
-    setinput(e.target.value);
-    const newInput = e.target.value.toUpperCase().split(" ");
-
+  useEffect(() => {
+    const newInput = props.input.split(" ");
     if (newInput.length > 2) {
       findName(newInput[0] > 1 ? newInput[0] : 1, newInput[1], newInput[2]);
     }
+  }, [props.input]);
+
+  const handleInput = (e) => {
+    e.target.value = ("" + e.target.value).toUpperCase();
+    props.setinput(e.target.value);
 
     if (e.target.value === "") {
       setValue("");
@@ -29,6 +29,7 @@ function Input(props) {
     }
   };
 
+  // find name and set rate
   const findName = (newValue, first, second) => {
     const indexFrom = props.currency.findIndex((x) => x.code === first);
     const indexTo = props.currency.findIndex((x) => x.code === second);
@@ -36,14 +37,25 @@ function Input(props) {
     if (indexFrom > -1 && indexTo > -1) {
       setfromName(props.currency[indexFrom].currency);
       setFrom(first);
-      setValue(newValue);
     }
 
     if (indexTo > -1 && indexFrom > -1) {
       setToName(props.currency[indexTo].currency);
       setTo(second);
+
       const rate = props.currency[indexFrom].mid / props.currency[indexTo].mid;
+      setValue(newValue);
       setValueAfter((newValue * rate).toFixed(2));
+    }
+  };
+
+  const reverse = () => {
+    const copy = props.input.split(" ");
+    if (copy.length > 2) {
+      const bufor = copy[1];
+      copy[1] = copy[2];
+      copy[2] = bufor;
+      props.setinput(copy[0] + " " + copy[1] + " " + copy[2]);
     }
   };
 
@@ -53,14 +65,15 @@ function Input(props) {
         className="input-btn m40"
         onChange={handleInput}
         type="text"
-        value={input}
+        value={props.input}
+        placeholder="example: 300 EUR PLN"
       ></input>
 
       <div className="exchange-container">
         <div className="value-l m20">{value}</div>
         <div className="value-r m20">{valueAfter}</div>
         <div className="from-l m10">{from}</div>
-        <div className="icon"></div>
+        <div onClick={reverse} className="icon"></div>
         <div className="to-r m10">{to}</div>
         <div className="name-l">{fromName}</div>
         <div className="name-r">{toName}</div>

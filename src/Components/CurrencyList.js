@@ -7,7 +7,13 @@ function CurrencyList(props) {
       <div className="title">List of currencies</div>
       <div>
         {[...props.currency].map((e) => (
-          <Currency code={e.code} name={e.currency} key={e.code} />
+          <Currency
+            input={props.input}
+            setinput={props.setinput}
+            code={e.code}
+            name={e.currency}
+            key={e.code}
+          />
         ))}
       </div>
     </div>

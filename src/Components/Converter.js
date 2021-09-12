@@ -6,6 +6,7 @@ import Input from "./Input";
 function Converter() {
   // get currency data
   const [currency, setcurrency] = useState("");
+  const [input, setinput] = useState("");
 
   useEffect(() => {
     fetch(`https://api.nbp.pl/api/exchangerates/tables/a/?format=json`)
@@ -25,9 +26,9 @@ function Converter() {
     <div className="converter">
       <div className="fixedSection">
         <Header />
-        <Input currency={currency} />
+        <Input input={input} setinput={setinput} currency={currency} />
       </div>
-      <CurrencyList currency={currency} />
+      <CurrencyList input={input} setinput={setinput} currency={currency} />
     </div>
   );
 }
