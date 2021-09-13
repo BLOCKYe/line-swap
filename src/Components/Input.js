@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { CgArrowsExchangeAlt } from "react-icons/cg";
+import { GoX } from "react-icons/go";
 
 function Input(props) {
-  const [value, setValue] = useState("");
-  const [valueAfter, setValueAfter] = useState("");
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [fromName, setfromName] = useState("");
-  const [toName, setToName] = useState("");
+  const [value, setValue] = useState("0");
+  const [valueAfter, setValueAfter] = useState("0");
+  const [from, setFrom] = useState("-");
+  const [to, setTo] = useState("-");
+  const [fromName, setfromName] = useState("-");
+  const [toName, setToName] = useState("-");
 
   useEffect(() => {
     const newInput = props.input.split(" ");
@@ -18,15 +20,6 @@ function Input(props) {
   const handleInput = (e) => {
     e.target.value = ("" + e.target.value).toUpperCase();
     props.setinput(e.target.value);
-
-    if (e.target.value === "") {
-      setValue("");
-      setValueAfter("");
-      setfromName("");
-      setToName("");
-      setTo("");
-      setFrom("");
-    }
   };
 
   // find name and set rate
@@ -61,20 +54,32 @@ function Input(props) {
 
   return (
     <div className="input">
-      <input
-        className="input-btn m40"
-        onChange={handleInput}
-        type="text"
-        value={props.input}
-        placeholder="example: 300 EUR PLN"
-      ></input>
+      <div className="input-container m40">
+        <input
+          className="input-btn"
+          onChange={handleInput}
+          type="text"
+          value={props.input}
+          placeholder="example: 300 EUR PLN"
+        ></input>
+        <div
+          onClick={() => {
+            props.setinput("");
+          }}
+          className="icon-del"
+        >
+          <GoX />
+        </div>
+      </div>
 
       <div className="exchange-container">
         <div className="value-l m20">{value}</div>
         <div className="value-r m20">{valueAfter}</div>
-        <div className="from-l m10">{from}</div>
-        <div onClick={reverse} className="icon"></div>
-        <div className="to-r m10">{to}</div>
+        <div className="from-l m20">{from}</div>
+        <div onClick={reverse} className="icon">
+          <CgArrowsExchangeAlt />
+        </div>
+        <div className="to-r m20">{to}</div>
         <div className="name-l">{fromName}</div>
         <div className="name-r">{toName}</div>
       </div>

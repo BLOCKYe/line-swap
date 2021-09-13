@@ -3,11 +3,11 @@
 // colors
 
 $t: #262626;
-$b: #f3f3f3;
+$b: #fff;
 $l: #fafafa;
 
 $gd: #fabc29;
-$gl: #f4eddf;
+$gl: #fff0cc;
 $pd: #758bef;
 $pl: #e6e9f3;
 
@@ -49,8 +49,6 @@ html {
   font-size: 18px;
   background-color: $b;
   color: $t;
-  max-width: 400px;
-  margin: 0 auto;
   letter-spacing: 0.3px;
 }
 
@@ -64,11 +62,18 @@ html {
   background-color: $b;
   width: calc(100% - 60px);
   top: 0;
-  left: 30px;
   padding-bottom: 40px;
   max-width: 400px;
-  left: 50%;
-  transform: translateX(-50%);
+  transition: 0.3s ease-in-out;
+  transition-delay: 0.1s;
+  left: 30px;
+  right: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.hide {
+  transform: translateY(-100px);
 }
 
 .header {
@@ -87,26 +92,49 @@ html {
 .input {
   width: 100%;
 
-  .input-btn {
-    all: unset;
-    font-weight: bold;
-    font-size: 14px;
+  .input-container {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    align-items: center;
     background-color: $l;
     border-radius: 5px;
+    padding: 0px;
+    width: calc(100%-25px);
     padding: 10px;
-    width: calc(100% - 20px);
     border: 2px solid $b;
     transition: 0.3s ease;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    align-items: center;
+
+    .input-btn {
+      all: unset;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .input-btn::placeholder {
+      opacity: 0.5;
+    }
+
+    .icon-del {
+      justify-self: end;
+      margin-right: 10px;
+      color: $t;
+      display: flex;
+      align-items: center;
+      transition: 0.3s 0.1s;
+    }
+
+    .icon-del:active {
+      transition: 0s;
+      transform: rotate(180deg);
+    }
   }
 
-  .input-btn:hover,
-  .input-btn:active,
-  .input-btn:focus {
+  .input-container:hover,
+  .input-container:active,
+  .input-container:focus {
     border: 2px solid #d9cbf5;
-  }
-
-  .input-btn::placeholder {
-    opacity: .3;
   }
 
   .exchange-container {
@@ -121,11 +149,13 @@ html {
     .value-l {
       grid-area: value-l;
       background-color: $l;
+      border: 2px solid $b;
       font-weight: bold;
       padding: 5px;
       text-align: center;
       border-radius: 5px;
       height: 25px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
 
     .value-r {
@@ -135,15 +165,20 @@ html {
 
     .icon {
       grid-area: icon;
-      text-align: end;
-      display: block;
-      text-indent: -9999px;
-      width: 18px;
-      height: 18px;
-      background: url(../exchange.svg);
-      background-size: 18px 18px;
+      font-size: 1.5rem;
       justify-self: center;
-      cursor: pointer;
+      transition: 0.3s .1s;
+      background-color: $l;
+      border: 2px solid $b;
+      display: flex;
+      border-radius: 10000px;
+      padding: 5px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+
+    .icon:active {
+      transition: 0s;
+      transform: rotate(180deg);
     }
 
     .from-l {
@@ -155,6 +190,7 @@ html {
       width: 50%;
       justify-self: center;
       height: 20px;
+      box-shadow: none;
     }
 
     .to-r {
@@ -166,6 +202,7 @@ html {
       width: 50%;
       justify-self: center;
       height: 20px;
+      box-shadow: none;
     }
 
     .name-l {
@@ -190,6 +227,10 @@ html {
 .list {
   position: absolute;
   top: 340px;
+  left: 30px;
+  right: 30px;
+  max-width: 400px;
+  margin: 0 auto;
 
   .title {
     font-weight: bold;
@@ -200,11 +241,11 @@ html {
 
 .currency {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
-  padding: 5px 20px;
-  cursor: pointer;
-  transition: 0.4s ease;
+  grid-template-columns: 0.2fr 1fr 0.3fr;
+  padding: 10px 20px;
+  transition: 0.3s 0.3s;
   border-radius: 5px;
+  align-items: center;
 
   .code {
     font-weight: bold;
@@ -213,9 +254,51 @@ html {
   .name {
     font-size: 12px;
     opacity: 0.3;
+    transition: 0.4s ease;
+  }
+
+  .icon {
+    justify-self: end;
+    color: $t;
+    opacity: 0.3;
+    transition: 0.4s ease;
   }
 }
 
-.currency:hover {
-  background-color: $l;
+.currency:active {
+  background-color: #f3f3f3;
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+.currency:hover .icon,
+.currency:hover .name {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .icon-del {
+    cursor: pointer;
+  }
+
+  .icon-del:hover {
+    transform: rotate(360deg);
+  }
+
+  .currency {
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .currency:hover {
+    background-color: #f3f3f3;
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  .icon:hover {
+    transform: rotate(180deg);
+  }
 }

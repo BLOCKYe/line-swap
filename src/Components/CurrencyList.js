@@ -5,7 +5,7 @@ function CurrencyList(props) {
   return (
     <div className="list m40">
       <div className="title">List of currencies</div>
-      <div>
+      <div className="container">
         {[...props.currency].map((e) => (
           <Currency
             input={props.input}

@@ -1,4 +1,5 @@
 import React from "react";
+import { CgPlayListAdd } from 'react-icons/cg';
 
 function Currency(props) {
   const addToInput = () => {
@@ -28,6 +29,7 @@ function Currency(props) {
     <div onClick={addToInput} className="currency">
       <div className="code">{props.code}</div>
       <div className="name">{props.name}</div>
+      <div className="icon"><CgPlayListAdd/></div>
     </div>
   );
 }

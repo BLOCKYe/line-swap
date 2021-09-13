@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import CurrencyList from "./CurrencyList";
 import Header from "./Header";
 import Input from "./Input";
+import { useScroll } from "./useScroll";
 
 function Converter() {
-  // get currency data
   const [currency, setcurrency] = useState("");
   const [input, setinput] = useState("");
+  const { scrollDirection } = useScroll();
 
+  // get currency data
   useEffect(() => {
     fetch(`https://api.nbp.pl/api/exchangerates/tables/a/?format=json`)
       .then((response) => response.json())
@@ -24,7 +26,9 @@ function Converter() {
 
   return (
     <div className="converter">
-      <div className="fixedSection">
+      <div
+        className={`fixedSection ${scrollDirection === "down" ? "" : "hide"}`}
+      >
         <Header />
         <Input input={input} setinput={setinput} currency={currency} />
       </div>
