@@ -1,5 +1,5 @@
 import React from "react";
-import { CgPlayListAdd } from 'react-icons/cg';
+import { CgPlayListAdd } from "react-icons/cg";
 
 function Currency(props) {
   const addToInput = () => {
@@ -8,9 +8,7 @@ function Currency(props) {
     if (props.input === "") {
       copyInput = "1 " + props.code;
       props.setinput(copyInput);
-    }
-
-    if (
+    } else if (
       (props.input !== "" && props.input[props.input.length - 1] === " ") ||
       props.input.split(" ").length < 3
     ) {
@@ -29,7 +27,9 @@ function Currency(props) {
     <div onClick={addToInput} className="currency">
       <div className="code">{props.code}</div>
       <div className="name">{props.name}</div>
-      <div className="icon"><CgPlayListAdd/></div>
+      <div className="icon">
+        <CgPlayListAdd />
+      </div>
     </div>
   );
 }

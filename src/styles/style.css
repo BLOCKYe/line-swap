@@ -48,8 +48,6 @@ html {
   max-width: 400px;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  -webkit-transition-delay: 0.1s;
-          transition-delay: 0.1s;
   left: 30px;
   right: 30px;
   max-width: 400px;
@@ -57,8 +55,8 @@ html {
 }
 
 .hide {
-  -webkit-transform: translateY(-100px);
-          transform: translateY(-100px);
+  -webkit-transform: translateY(-130px);
+          transform: translateY(-130px);
 }
 
 .header {
@@ -131,8 +129,8 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-transition: 0.3s 0.1s;
-  transition: 0.3s 0.1s;
+  -webkit-transition: 0.3s 0s;
+  transition: 0.3s 0s;
 }
 
 .input .input-container .icon-del:active {
@@ -187,8 +185,8 @@ html {
   grid-area: icon;
   font-size: 1.5rem;
   justify-self: center;
-  -webkit-transition: 0.3s .1s;
-  transition: 0.3s .1s;
+  -webkit-transition: 0.3s 0s;
+  transition: 0.3s 0s;
   background-color: #fafafa;
   border: 2px solid #fff;
   display: -webkit-box;
@@ -275,8 +273,8 @@ html {
 .currency {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 0.2fr 1fr 0.3fr;
-      grid-template-columns: 0.2fr 1fr 0.3fr;
+  -ms-grid-columns: 0.3fr 1fr 0.3fr;
+      grid-template-columns: 0.3fr 1fr 0.3fr;
   padding: 10px 20px;
   -webkit-transition: 0.3s 0.3s;
   transition: 0.3s 0.3s;
@@ -308,7 +306,8 @@ html {
 }
 
 .currency:active {
-  background-color: #f3f3f3;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: 0.3s;
@@ -334,12 +333,13 @@ html {
     transition: 0.3s;
   }
   .currency:hover {
-    background-color: #f3f3f3;
+    -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
-  .icon {
+  .exchange-container .icon {
     cursor: pointer;
   }
-  .icon:hover {
+  .exchange-container .icon:hover {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
   }

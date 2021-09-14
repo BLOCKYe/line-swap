@@ -12,6 +12,8 @@ function Input(props) {
 
   useEffect(() => {
     const newInput = props.input.split(" ");
+    if (props.input === "") clearValues();
+    if (newInput[0] > 999999999) newInput[0] = 999999999;
     if (newInput.length > 2) {
       findName(newInput[0] > 1 ? newInput[0] : 1, newInput[1], newInput[2]);
     }
@@ -22,7 +24,6 @@ function Input(props) {
     props.setinput(e.target.value);
   };
 
-  // find name and set rate
   const findName = (newValue, first, second) => {
     const indexFrom = props.currency.findIndex((x) => x.code === first);
     const indexTo = props.currency.findIndex((x) => x.code === second);
@@ -36,10 +37,14 @@ function Input(props) {
       setToName(props.currency[indexTo].currency);
       setTo(second);
 
-      const rate = props.currency[indexFrom].mid / props.currency[indexTo].mid;
-      setValue(newValue);
-      setValueAfter((newValue * rate).toFixed(2));
+      setRate(newValue, indexFrom, indexTo);
     }
+  };
+
+  const setRate = (newValue, indexFrom, indexTo) => {
+    const rate = props.currency[indexFrom].mid / props.currency[indexTo].mid;
+    setValue(newValue);
+    setValueAfter((newValue * rate).toFixed(2));
   };
 
   const reverse = () => {
@@ -50,6 +55,15 @@ function Input(props) {
       copy[2] = bufor;
       props.setinput(copy[0] + " " + copy[1] + " " + copy[2]);
     }
+  };
+
+  const clearValues = () => {
+    setValue("0");
+    setValueAfter("0");
+    setfromName("-");
+    setFrom("-");
+    setTo("-");
+    setToName("-");
   };
 
   return (
@@ -74,7 +88,9 @@ function Input(props) {
 
       <div className="exchange-container">
         <div className="value-l m20">{value}</div>
-        <div className="value-r m20">{valueAfter}</div>
+        <div className="value-r m20">
+          {parseFloat(valueAfter).toLocaleString()}
+        </div>
         <div className="from-l m20">{from}</div>
         <div onClick={reverse} className="icon">
           <CgArrowsExchangeAlt />

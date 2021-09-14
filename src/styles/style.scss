@@ -65,7 +65,6 @@ html {
   padding-bottom: 40px;
   max-width: 400px;
   transition: 0.3s ease-in-out;
-  transition-delay: 0.1s;
   left: 30px;
   right: 30px;
   max-width: 400px;
@@ -73,7 +72,7 @@ html {
 }
 
 .hide {
-  transform: translateY(-100px);
+  transform: translateY(-130px);
 }
 
 .header {
@@ -122,7 +121,7 @@ html {
       color: $t;
       display: flex;
       align-items: center;
-      transition: 0.3s 0.1s;
+      transition: 0.3s 0s;
     }
 
     .icon-del:active {
@@ -167,7 +166,7 @@ html {
       grid-area: icon;
       font-size: 1.5rem;
       justify-self: center;
-      transition: 0.3s .1s;
+      transition: 0.3s 0s;
       background-color: $l;
       border: 2px solid $b;
       display: flex;
@@ -241,7 +240,7 @@ html {
 
 .currency {
   display: grid;
-  grid-template-columns: 0.2fr 1fr 0.3fr;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
   padding: 10px 20px;
   transition: 0.3s 0.3s;
   border-radius: 5px;
@@ -266,7 +265,8 @@ html {
 }
 
 .currency:active {
-  background-color: #f3f3f3;
+ // background-color: #f3f3f3;
+ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -291,14 +291,17 @@ html {
   }
 
   .currency:hover {
-    background-color: #f3f3f3;
+  //  background-color: #f3f3f3;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 
-  .icon {
-    cursor: pointer;
-  }
+  .exchange-container {
+    .icon {
+      cursor: pointer;
+    }
 
-  .icon:hover {
-    transform: rotate(180deg);
+    .icon:hover {
+      transform: rotate(180deg);
+    }
   }
 }
