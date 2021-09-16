@@ -258,6 +258,8 @@ html {
 
   .icon {
     justify-self: end;
+    display: flex;
+    align-items: center;
     color: $t;
     opacity: 0.3;
     transition: 0.4s ease;
@@ -265,8 +267,8 @@ html {
 }
 
 .currency:active {
- // background-color: #f3f3f3;
- box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  // background-color: #f3f3f3;
+  box-shadow: rgba(149, 157, 165, 0.23) 0px 8px 24px;
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -291,8 +293,8 @@ html {
   }
 
   .currency:hover {
-  //  background-color: #f3f3f3;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    //  background-color: #f3f3f3;
+    box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
   }
 
   .exchange-container {

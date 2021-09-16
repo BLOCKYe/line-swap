@@ -297,8 +297,13 @@ html {
 }
 
 .currency .icon {
-  -ms-grid-column-align: end;
-      justify-self: end;
+  justify-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #262626;
   opacity: 0.3;
   -webkit-transition: 0.4s ease;
@@ -306,8 +311,8 @@ html {
 }
 
 .currency:active {
-  -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-          box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-box-shadow: rgba(149, 157, 165, 0.23) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.23) 0px 8px 24px;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   -webkit-transition: 0.3s;
@@ -333,8 +338,8 @@ html {
     transition: 0.3s;
   }
   .currency:hover {
-    -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    -webkit-box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
+            box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
   }
   .exchange-container .icon {
     cursor: pointer;
