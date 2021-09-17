@@ -87,8 +87,16 @@ function Input(props) {
       </div>
 
       <div className="exchange-container">
-        <div className="value-l m20">{value}</div>
-        <div className="value-r m20">
+        <div
+          onClick={() => navigator.clipboard.writeText(value)}
+          className="value-l m20"
+        >
+          {parseFloat(value).toLocaleString()}
+        </div>
+        <div
+          onClick={() => navigator.clipboard.writeText(valueAfter)}
+          className="value-r m20"
+        >
           {parseFloat(valueAfter).toLocaleString()}
         </div>
         <div className="from-l m20">{from}</div>

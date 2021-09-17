@@ -157,7 +157,7 @@ html {
       grid-template-areas: "value-l icon value-r" "from-l icon to-r" "name-l icon name-r";
 }
 
-.input .exchange-container .value-l, .input .exchange-container .value-r, .input .exchange-container .from-l, .input .exchange-container .to-r {
+.input .exchange-container .value-l, .input .exchange-container .value-r {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: value-l;
@@ -170,12 +170,34 @@ html {
   height: 25px;
   -webkit-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
           box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  -webkit-transition: 0.3s 0.3s;
+  transition: 0.3s 0.3s;
+}
+
+.input .exchange-container .value-l:active, .input .exchange-container .value-r:active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
 }
 
 .input .exchange-container .value-r {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: value-r;
+  -webkit-transition: 0.3s 0.3s;
+  transition: 0.3s 0.3s;
+}
+
+.input .exchange-container .value-r:active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
+          box-shadow: rgba(149, 157, 165, 0.4) 0px 8px 24px;
 }
 
 .input .exchange-container .icon {
@@ -205,7 +227,11 @@ html {
           transform: rotate(180deg);
 }
 
-.input .exchange-container .from-l {
+.input .exchange-container .from-l, .input .exchange-container .to-r {
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  border-radius: 5px;
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: from-l;
@@ -325,6 +351,15 @@ html {
 }
 
 @media (min-width: 768px) {
+  .value-l, .input .exchange-container .value-r {
+    cursor: pointer;
+    -webkit-transition: .3s 0s !important;
+    transition: .3s 0s !important;
+  }
+  .value-l:hover, .input .exchange-container .value-r:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
   .icon-del {
     cursor: pointer;
   }
